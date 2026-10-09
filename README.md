@@ -5,7 +5,7 @@
 [![Google Gen AI SDK](https://img.shields.io/badge/SDK-google--genai-green.svg)](https://github.com/googleapis/python-genai)
 [![Gemini Live API](https://img.shields.io/badge/Model-gemini--live--2.5--flash--native--audio-orange.svg)](https://cloud.google.com/vertex-ai)
 
-> **A production-ready FastAPI WebSocket application built on the official `google-genai` SDK and Vertex AI (`gemini-live-2.5-flash-native-audio`) that streams real-time bidirectional voice audio while executing sub-second native function calling, dynamic prompt context injection, financial compliance guardrails, and SEC Rule 17a-4 audit logging.**
+> **Sample reference FastAPI WebSocket application built on `google-genai` SDK and Vertex AI (`gemini-live-2.5-flash-native-audio`) that streams real-time bidirectional voice audio while executing sub-second native function calling, dynamic prompt context injection, financial compliance guardrails, and SEC Rule 17a-4 audit logging.**
 
 ---
 
