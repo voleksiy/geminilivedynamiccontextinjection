@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Bank - Dynamic Context Injection Voice Agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-brand">
+                <div class="logo-icon"></div>
+                <div>
+                    <h1>Apex Bank Voice Governance Hub</h1>
+                    <p class="subtitle">Dynamic Context Injection & Compliance Engine • Gemini Live API on Vertex AI</p>
+                </div>
+            </div>
+            <div class="header-badges">
+                <span class="badge badge-provider">
+                    <span class="dot green"></span> Vertex AI
+                </span>
+                <span class="badge badge-model">gemini-live-2.5-flash-native-audio</span>
+                <span id="fsmBadge" class="badge badge-fsm">FSM: AUTHENTICATED_GREETING</span>
+            </div>
+        </header>
+
+        <!-- Main Grid Layout -->
+        <main class="main-grid">
+            <!-- Left Column: Voice Controls & Waveform -->
+            <section class="card voice-control-card">
+                <div class="card-header">
+                    <h2>Live Voice Stream & Mic Input</h2>
+                    <span id="connStatus" class="status-pill disconnected">Disconnected</span>
+                </div>
+                
+                <!-- Audio Waveform Canvas -->
+                <div class="visualizer-container">
+                    <canvas id="waveformCanvas" width="600" height="120"></canvas>
+                    <div id="visualizerOverlay" class="visualizer-overlay">
+                        Click "Start Voice Session" to speak
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="control-actions">
+                    <button id="btnConnect" class="btn btn-primary">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                        Start Voice Session
+                    </button>
+                    <button id="btnMute" class="btn btn-secondary" disabled>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="1" y1="1" x2="23" y2="23"/><path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V5a3 3 0 0 0-5.94-.6"/><path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"/></svg>
+                        Mute Mic
+                    </button>
+                </div>
+
+                <!-- Text Speech Prompt Input -->
+                <div class="text-prompt-bar">
+                    <input type="text" id="textPromptInput" placeholder="Type a message or question to speak with Gemini..." class="text-input">
+                    <button id="btnSendText" class="btn btn-secondary btn-send-text">Send Speech Prompt</button>
+                </div>
+
+                <!-- Live Conversation Transcript -->
+                <div class="transcript-section">
+                    <h3>Conversation Transcript</h3>
+                    <div id="transcriptBox" class="transcript-box">
+                        <div class="system-msg">Session ready. Click Start Voice Session to begin speaking via microphone or use the simulation triggers below.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Context Injection Dashboard & Quick Simulation -->
+            <section class="right-column">
+                <!-- Interactive Quick Simulation Triggers -->
+                <div class="card simulation-card">
+                    <div class="card-header">
+                        <h2>Quick Test Trigger Panel</h2>
+                        <span class="sub-label">Test disclosure injection without speaking</span>
+                    </div>
+                    <div class="sim-buttons">
+                        <button id="btnSimBereavement" class="btn btn-sim btn-trauma">
+                            <span class="btn-title">Simulate Bereavement</span>
+                            <span class="btn-desc">Discloses loss of spouse → Injects Policy #HARDSHIP-901 RAG</span>
+                        </button>
+                        <button id="btnSimAdvice" class="btn btn-sim btn-advice">
+                            <span class="btn-title">Simulate Stock Advice</span>
+                            <span class="btn-desc">Asks for stock pick → Injects SEC/FINRA Disclaimer</span>
+                        </button>
+                        <button id="btnSimKillSwitch" class="btn btn-sim btn-kill">
+                            <span class="btn-title">Trigger Soft Kill Switch</span>
+                            <span class="btn-desc">Executes human specialist transfer override</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Injected RAG Context & System Overrides -->
+                <div class="card context-card">
+                    <div class="card-header">
+                        <h2>Dynamic Context & RAG Grounding Feed</h2>
+                        <span id="injectionCountBadge" class="badge">0 Injections</span>
+                    </div>
+                    <div id="contextFeed" class="context-feed">
+                        <div class="feed-placeholder">
+                            No context injections triggered yet. When a customer discloses personal hardship or pivots topics, injected RAG policies and system instruction updates will appear here in real-time.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bottom Full-Width: SEC 17a-4 / CFPB Immutable Audit Trail -->
+            <section class="card audit-card full-width">
+                <div class="card-header">
+                    <h2>SEC Rule 17a-4 & CFPB Compliance Audit Ledger</h2>
+                    <span class="sub-label">Immutable JSONL Event Log (`audit_ledger.jsonl`)</span>
+                </div>
+                <div id="auditLogBox" class="audit-log-box">
+                    <div class="log-entry system-log">[System Initialized] Audit ledger active. Awaiting compliance events...</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

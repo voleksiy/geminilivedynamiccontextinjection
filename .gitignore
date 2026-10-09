@@ -1,0 +1,25 @@
+# Python
+venv/
+*.pyc
+__pycache__/
+.pytest_cache/
+
+# TLS / Certificates (Do not commit private keys)
+*.pem
+*.key
+*.crt
+
+# Environment & Credentials
+.env
+.env.*
+*.json
+!package.json
+
+# Local Runtime Audit Logs & Temporary PCM Audio
+audit_ledger.jsonl
+*.pcm
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
